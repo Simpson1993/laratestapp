@@ -2,20 +2,20 @@
 
 Installations instruction
 -
-0. Run container
+1. Run container
 ```PHP
-docker-compose exec app php artisan migrate
+docker-compose up -d
 ```
-
-2. Install dependencies
+2. Configure `.env` file according to `.env-example`
+3. Install dependencies
 ```PHP
 composer install
 ```
-3. Run migrations
+4. Run migrations
 ```PHP
 docker-compose exec app php artisan migrate
 ```
-4. Seeds data
+5. Seeds data
 ```PHP
 docker-compose exec app php artisan db:seed
 ```
