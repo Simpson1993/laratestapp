@@ -3,8 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Http\Resources\Collections\ItemCollection;
-use App\Http\Resources\ItemResource;
 use App\Models\Item;
+use App\Repositories\Contracts\SearchRepository;
 use Illuminate\Console\Command;
 
 class SearchItems extends Command
@@ -24,13 +24,19 @@ class SearchItems extends Command
     protected $description = 'Search items';
 
     /**
+     * @var SearchRepository
+     */
+    private $searchRepository;
+
+    /**
      * Create a new command instance.
      *
-     * @return void
+     * @param  SearchRepository  $searchRepository
      */
-    public function __construct()
+    public function __construct(SearchRepository $searchRepository)
     {
         parent::__construct();
+        $this->searchRepository = $searchRepository;
     }
 
     /**
@@ -41,7 +47,7 @@ class SearchItems extends Command
     public function handle()
     {
         $query = $this->ask('Enter search query');
-        $result = Item::whereLike('title', $query)->limit(10)->get();
+        $result = $this->searchRepository->search(new Item(), $query)->take(10);
 
         $this->info((new ItemCollection($result))->toJson());
 

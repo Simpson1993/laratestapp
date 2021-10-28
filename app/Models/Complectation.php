@@ -22,6 +22,15 @@ class Complectation extends Model
         'complectation',
         'parameters',
     ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'parameters' => 'json',
+    ];
     
     /**
      * @return BelongsTo

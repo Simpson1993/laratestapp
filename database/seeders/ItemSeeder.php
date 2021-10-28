@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Item;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class ItemSeeder extends Seeder
 {
@@ -15,5 +16,6 @@ class ItemSeeder extends Seeder
     public function run()
     {
         Item::factory()->count(100)->hasComplectations(3)->create();
+        Artisan::call('items:index');
     }
 }

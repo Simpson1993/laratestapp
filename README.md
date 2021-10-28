@@ -24,7 +24,7 @@ Working commands
 - 
 Create item
 ```PHP
-docker-compose exec app php artisan migrate
+docker-compose exec app php artisan items:create
 ```
 Search item
 ```PHP
@@ -37,3 +37,13 @@ docker-compose exec app php artisan items:search
 - [ ] Implement Doctrine instead of Eloquent
 - [ ] Dive dipper into Docker
 - [ ] Improve Docker container
+- [x] Add ability to switch search engine (Elastic/ORM)
+- [ ] Dive dipper into Elasticsearch
+- [ ] Add ES configuration file instead of using env()
+- [ ] Improve Elasticsearch index logic (add numeric index search)
+- [ ] Search by complectation parameters
+- [ ] Improve SearchItems command interaction
+- [ ] Improve SearchItems command output format
+- [ ] CreateItems massive assigment
+- [ ] Check dependencies
+- [ ] Install xdebug

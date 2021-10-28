@@ -27,7 +27,7 @@ class ComplectationFactory extends Factory
     public function definition()
     {
         return [
-            'parameters' => json_encode($this->faker->words(rand(5, 15))),
+            'parameters' => $this->faker->words(rand(5, 15)),
             'complectation' => array_rand(array_flip(ComplectationEnum::getIndices())),
         ];
     }

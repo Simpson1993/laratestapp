@@ -28,7 +28,7 @@ class ItemFactory extends Factory
     {
         return [
             'title' => $this->faker->unique()->name(),
-            'description' => $this->faker->realText(400),
+            'description' => $this->faker->realText(80),
             'year' => $this->faker->year(),
             'colour' => array_rand(array_flip(ColourEnum::getIndices())),
         ];
